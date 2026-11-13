@@ -1,0 +1,339 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<title>Scooldudes | J4M Contest</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style5 {
+	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.FromField {
+	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.style10 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+.style11 {
+	font-family: "Comic Sans MS";
+	font-size: 18px;
+	color: #003366;
+}
+.style12 {font-family: "Comic Sans MS"}
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function check()
+{
+	var Frm = document.SDForm
+
+	if(Frm.txtFullName.value == "")
+	{
+		alert("Enter you Name")
+		Frm.txtFullName.focus()
+		return false;
+	}
+
+	if(Frm.lstGender.value == "")
+	{
+		alert("Select your Gender.")
+		Frm.lstGender.focus()
+		return false;
+	}
+
+	if(Frm.txtDOBDate.value == "")
+	{
+		alert("Enter Date Of Birth")
+		Frm.txtDOBDate.focus()
+		return false
+	}
+
+	if(Frm.txtDOBMonth.value == "")
+	{
+		alert("Enter Date Of Birth")
+		Frm.txtDOBMonth.focus()
+		return false
+	}
+
+	if(Frm.txtDOBYear.value == "")
+	{
+		alert("Enter Date Of Birth")
+		Frm.txtDOBYear.focus()
+		return false
+	}
+
+	var DateErrMsg = IsValidDate(Frm.txtDOBDate.value,Frm.txtDOBMonth.value,Frm.txtDOBYear.value)
+	if(DateErrMsg != "")
+	{
+		alert(DateErrMsg)
+		return false
+	}
+
+	var DOBDate = Frm.txtDOBMonth.value + "/" + Frm.txtDOBDate.value + "/" + Frm.txtDOBYear.value 
+	DOBDateObj 	= new Date(DOBDate)
+	sysDate		= new Date()
+
+	if(DOBDateObj > sysDate)
+	{
+		alert("Date Of Birth Date can not be grater than System Date")
+		return false
+	}
+
+	if(Frm.txtMobileNo.value == "")
+	{
+		alert("Enter your Mobile No.")
+		Frm.txtMobileNo.focus()
+		return false
+	}
+	else
+	{
+		if(isNaN(Frm.txtMobileNo.value))
+		{
+			alert("Special Charecter is NOT allowed for Mobile No. \n\n Only numbers are allowed.")
+			Frm.txtMobileNo.focus();
+			return false;
+		}
+	}
+
+	if(Frm.lstYourClass.value == "")
+	{
+		alert("Enter your Grade")
+		Frm.lstYourClass.focus()
+		return false
+	}
+
+	if(Frm.txtSchoolName.value == "")
+	{
+		alert("Enter School Name")
+		Frm.txtSchoolName.focus()
+		return false
+	}
+
+	if(Frm.txtLocation.value == "")
+	{
+		alert("Enter your Location")
+		Frm.txtLocation.focus()
+		return false
+	}
+
+	if(Frm.lstState.value == "")
+	{
+		alert("Select your State")
+		Frm.lstState.focus()
+		return false
+	}
+
+	if(Frm.txtEmailID.value == "")
+	{
+		Frm.txtEmailID.focus(); 
+		alert("Enter your Email ID")
+		return false;
+	}
+	else
+	{
+	 
+	   var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+	   if(emailPattern.test(Frm.txtEmailID.value) == false)
+	   {
+			Frm.txtEmailID.focus(); 
+			alert("Email ID is not valid")
+			return false;
+	   }
+	}
+
+	if(Frm.txtPassword.value == "")
+	{
+		alert("Enter your Password")
+		Frm.txtPassword.focus()
+		return false
+	}
+	
+	if(Frm.lstKnowFrom.value == "")
+	{
+		alert("Please select \n\n How did you know about scooldudes?")
+		Frm.lstKnowFrom.focus()
+		return false
+	}
+}
+
+function IsValidDate(day,month,year) 
+{
+	if(day.length<1 || month.length<1 || year.length<4)
+	{
+		msg = "Date should be in the format DD/MM/YYYY";
+		return msg;
+	}
+	if(day>31 || month>12 )
+	{
+		msg="Invalid Date";	
+		return msg;
+	}
+	if(year<1900 )
+	{
+		msg="Invalid Year";	
+		return msg;
+	}
+	if(isNaN(day) || isNaN(month) || isNaN(year))
+	{
+		msg = "Invalid Date";
+		return msg;
+	}
+	msg = ""
+	if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+		msg = "Month "+month+" doesn't have 31 days!"
+		return msg;
+	}
+	if (month == 2) { // check for february 29th
+		var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		if (day>29 || (day==29 && !isleap)) {
+			msg = "February " + year + " doesn't have " + day + " days!";
+			return msg;
+	   }
+	}
+	return ""
+}
+
+</script>
+</head>
+
+<body>
+<form name="SDForm" method="post" action="../../not-available.html" onSubmit="return check()">
+<table width="75%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <th scope="row" height="100%" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><div align="center">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%"><div align="center" class="style10">J4M - Visual Expression Contest </div></td>
+          </tr>
+        </table></td>
+	</tr>
+
+                </table>
+              </div></td>
+            </tr>
+          </table>
+          </td>
+      </tr>
+    </table>
+      <br>
+      <span class="style11">Please fill in your details to participate in the Contest</span><br>
+      <br>
+      <table width="70%" border="1" align="center" cellpadding="2" cellspacing="0" bordercolor="#CCCCCC">
+        <tr>
+          <td width="60%" height="25" bgcolor="#CC9752" class="page-inner-text"><span class="style4 style12">Your Name </span></td>
+          <td width="40%" bgcolor="#F0E1CA"><label>
+            <input name="txtFullName" type="text" class="FromField" id="txtFullName" size="30" maxlength="50" />
+          </label></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12">Gender</td>
+          <td bgcolor="#F0E1CA"><select name="lstGender" class="FromField" id="lstGender">
+              <option value="">Select Your Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12">Date Of Birth <span class="style49">(DD/MM/YYYY)</span> </td>
+          <td bgcolor="#F0E1CA">
+            <input name="txtDOBDate" type="text" class="FromField" id="txtDOBDate" size="2" maxlength="2" />
+            <input name="txtDOBMonth" type="text" class="FromField" id="txtDOBMonth" size="2" maxlength="2" />
+            <input name="txtDOBYear" type="text" class="FromField" id="txtDOBYear" size="4" maxlength="4" />
+          </td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12">Mobile No <br />
+              <span class="style41">(Please enter your correct mobile number. Winners will be contacted on their mobile numbers.)</span></td>
+          <td bgcolor="#F0E1CA"><input name="txtMobileNo" type="text" class="FromField" id="txtMobileNo" size="20" maxlength="20" /></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text"><span class="style4 style12">Grade</span></td>
+          <td bgcolor="#F0E1CA"><label>
+            <select name="lstYourClass" class="FromField" id="lstYourClass">
+              <option value="">Select Your Class</option>
+              <option value="4">IV</option>
+              <option value="5">V</option>
+              <option value="6">VI</option>
+              <option value="7">VII</option>
+              <option value="8">VIII</option>
+              <option value="9">IX</option>
+              <option value="10">X</option>
+              <option value="11">XI</option>
+              <option value="12">XII</option>
+            </select>
+          </label></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text"><span class="style4 style12">School Name </span></td>
+          <td bgcolor="#F0E1CA"><input name="txtSchoolName" type="text" class="FromField" id="txtSchoolName" size="30" maxlength="50" /></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text"><span class="style4 style12">Location (City / Town Name) </span></td>
+          <td bgcolor="#F0E1CA"><input name="txtLocation" type="text" class="FromField" id="txtLocation" size="30" maxlength="50" /></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12">State </td>
+          <td bgcolor="#F0E1CA"><select name="lstState" class="FromField" id="lstState">
+              <option value="">Select Your State</option>
+              
+              <option value=""></option>
+              
+          </select></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text"><span class="style4 style12">e-Mail ID </span></td>
+          <td bgcolor="#F0E1CA"><input name="txtEmailID" type="text" class="FromField" id="txtEmailID" size="30" maxlength="50" /></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12"><span class="style4">Password <br>
+          </span><span class="style51">(This password will enable you to access all the sections on scooldudes.com)</span></td>
+          <td bgcolor="#F0E1CA"><input name="txtPassword" type="password" class="FromField" id="txtPassword" size="20" maxlength="20" /></td>
+        </tr>
+        <tr>
+          <td height="25" bgcolor="#CC9752" class="page-inner-text style12">How did you know about scooldudes?</td>
+          <td bgcolor="#F0E1CA"><select name="lstKnowFrom" class="FromField" id="lstKnowFrom">
+              <option value="">Please Select ??</option>
+              
+              <option value=""></option>
+              
+          </select></td>
+        </tr>
+      </table>
+      <br>
+      <input name="hdnContestCode" type="hidden" id="hdnContestCode" value="996CC0BE-0D87-4F88-8CDA-D9026B55588E">
+      <input type="submit" name="Submit" value="Continue" />
+      <br>
+      <br></th>
+  </tr>
+  <tr>
+    <th scope="row"><span class="style5">All rights reserved &copy; Scooldudes.com</span></th>
+  </tr>
+</table>
+</form>
+</body>
+</html>

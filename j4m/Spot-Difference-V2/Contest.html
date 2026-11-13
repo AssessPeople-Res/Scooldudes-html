@@ -1,0 +1,274 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<title>Scooldudes | J4M Contest</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.style2 {
+	font-family: "Comic Sans MS";
+	font-size: 18px;
+	color: #FFCC00;
+	font-weight: normal;
+}
+.style3 {
+	font-family: "Comic Sans MS";
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: normal;
+}
+.style5 {
+	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.FromField {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	border: thin solid #FFFFCC;
+}
+.FormField {font-family: "Comic Sans MS";
+	background-color: #620505;
+	font-size: 36px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-position: center center;
+	text-align: center;
+}
+.ResponseBox {
+	background-color: #CCCCCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	border: medium solid #999999;
+}
+.style8 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+.style9 {color: #0000CC}
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function Timer()
+{
+	var Frm = document.SDForm; 
+
+	var Mins = parseInt(Frm.txtMins.value);	
+	var Secs = parseInt(Frm.txtSecs.value);	
+
+	if(Secs == 0)
+	{
+		Mins = Mins-1; 
+		Secs = 60; 
+	}
+	
+	Secs = Secs-1;
+	
+	if(parseInt((Secs/30))*30 == Secs)
+	{
+		SaveData();
+	}
+
+	Frm.txtMins.value = Mins
+	Frm.txtSecs.value = Secs 
+	
+	if(Mins == 0 && Secs == 0)
+	{
+		document.getElementById("MsgDiv").innerHTML = "<br>You alotted time is over. Your response is being saved now ..."
+		setTimeout("submitPage()",3000); 
+	}
+	else
+	{
+		setTimeout("Timer()",1000); 
+	}
+}
+
+function submitPage()
+{
+	document.SDForm.submit();
+}
+
+function check()
+{
+	var Frm = document.SDForm; 
+	var ResponseStatus = true;
+
+	for(var i=0;i<Frm.txtResponse.length;i++)
+	{
+		if(Frm.txtResponse[i].value == "")
+		{
+			ResponseStatus = false;
+		}
+	}
+	
+	if(ResponseStatus == false)
+	{
+		var ResponseAlert = confirm("Are you sure you want to exit?");
+
+		if (ResponseAlert==false)
+		{
+			return false;
+		}
+	}
+}
+
+function SaveData()
+{
+/*
+	if(window.XMLHttpRequest) 
+	{
+		var Frm = document.SDForm; 
+		var URL = "../../not-available.html"+Frm.txtResponse_1.value+"&txtMins="+Frm.txtMins.value+"&txtSecs="+Frm.txtSecs.value; 
+		var MYXMLHTTP = new XMLHttpRequest(); //Not IE	
+		MYXMLHTTP.open ("post",URL,false); 
+		MYXMLHTTP.send(); 
+	} 
+	else if(window.ActiveXObject)
+	{
+		var Frm = document.SDForm; 
+		var URL = "../../not-available.html"+Frm.txtResponse_1.value+"&txtMins="+Frm.txtMins.value+"&txtSecs="+Frm.txtSecs.value; 
+
+		var MYXMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+		MYXMLHTTP.open ("post",URL,false); 
+		MYXMLHTTP.send(); 
+	} 
+*/
+}
+
+function onBodyLoad()
+{
+//	document.SDForm.txtResponse.focus(); 
+//	Timer();
+	setTimeout("Timer()",1000)
+}
+
+function onTextPaste()
+{
+	event.returnValue = false
+}
+
+</script>
+</head>
+
+<body onLoad="onBodyLoad()">
+<form name="SDForm" method="post" action="../../not-available.html" onSubmit="return check()">
+<table width="90%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <th scope="row" height="100%" valign="top" bgcolor="#620505"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%" bgcolor="#FFFFFF"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%" bgcolor="#FFFFFF"><div align="center" class="style8">J4M - Eagle Eye Contest </div></td>
+          </tr>
+        </table>
+			  </td>
+            </tr>
+          </table>
+            <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1">
+              <tr>
+                <td width="50%" class="style3" scope="row"><div align="center">Visual </div></td>
+                <td width="30%" rowspan="4" class="style3" valign="top"><table width="100%" border="1" cellpadding="1" cellspacing="1" bordercolor="#CCCCCC">
+                  <tr>
+                    <td colspan="2"><div align="center" class="style3">Enter your Response here </div></td>
+                    </tr>
+                  <tr>
+                    <td width="10%" class="style3"><div align="center">1</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">2</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">3</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">4</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">5</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">6</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">7</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">8</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">9</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                  <tr>
+                    <td class="style3"><div align="center">10</div></td>
+                    <td><input name="txtResponse" type="text" id="txtResponse" size="30" maxlength="100"></td>
+                  </tr>
+                </table></td>
+                <td width="20%" rowspan="4" class="style3" valign="top"><br><br>
+                  <br>
+                  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <th class="style1" scope="row">Timer</th>
+                  </tr>
+                  <tr>
+                    <th scope="row"><div align="center">
+                        <input name="txtMins" type="text" class="FormField" id="txtMins" value="" size="2" maxlength="2" readonly>
+                        <span class="style2">Min.</span>
+                        <input name="txtSecs" type="text" class="FormField" id="txtSecs" value="" size="2" maxlength="2" readonly>
+                        <span class="style2">Sec.</span> </div></th>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td><div align="center"><img src="Contest-Images/scooldudes%20spot%20the%20diff_june.jpg" width="500" height="374"></div></td>
+              </tr>
+            </table>
+            <div align="center"><br>
+              <input type="submit" name="Submit" value="SUBMIT">
+              <br>
+                <br>
+            </div>
+            <div align="center" id="MsgDiv" class="style3"><br><br/><br /></div>
+			</td>
+      </tr>
+    </table></th>
+  </tr>
+  <tr>
+    <th scope="row"><span class="style5">All rights reserved &copy; Scooldudes.com</span></th>
+  </tr>
+</table>
+</form>
+</body>
+</html>

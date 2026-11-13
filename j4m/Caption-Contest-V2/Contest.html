@@ -1,0 +1,226 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<title>Scooldudes | J4M Contest</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.style2 {
+	font-family: "Comic Sans MS";
+	font-size: 18px;
+	color: #FFCC00;
+	font-weight: normal;
+}
+.style3 {
+	font-family: "Comic Sans MS";
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: normal;
+}
+.style5 {
+	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.FromField {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	border: thin solid #FFFFCC;
+}
+.FormField {font-family: "Comic Sans MS";
+	background-color: #620505;
+	font-size: 36px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-position: center center;
+	text-align: center;
+}
+.ResponseBox {
+	background-color: #CCCCCC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	border: medium solid #999999;
+}
+.style7 {font-size: 14px}
+.style8 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function Timer()
+{
+	var Frm = document.SDForm; 
+
+	var Mins = parseInt(Frm.txtMins.value);	
+	var Secs = parseInt(Frm.txtSecs.value);	
+
+	if(Secs == 0)
+	{
+		Mins = Mins-1; 
+		Secs = 60; 
+	}
+	
+	Secs = Secs-1;
+	
+	if(parseInt((Secs/30))*30 == Secs)
+	{
+		SaveData();
+	}
+
+	Frm.txtMins.value = Mins
+	Frm.txtSecs.value = Secs 
+	
+	if(Mins == 0 && Secs == 0)
+	{
+		document.getElementById("MsgDiv").innerHTML = "<br>You alotted time is over. Your response is being saved now ..."
+		setTimeout("submitPage()",3000); 
+	}
+	else
+	{
+		setTimeout("Timer()",1000); 
+	}
+}
+
+function submitPage()
+{
+	document.SDForm.submit();
+}
+
+function check()
+{
+	if(document.SDForm.txtResponse_1.value == "")
+	{
+		alert("Please enter your Caption") 
+		document.SDForm.txtResponse_1.focus(); 
+		return false;
+	}
+}
+
+function SaveData()
+{
+	if(window.XMLHttpRequest) 
+	{
+		var Frm = document.SDForm; 
+		var URL = "../../not-available.html"+Frm.txtResponse_1.value+"&txtMins="+Frm.txtMins.value+"&txtSecs="+Frm.txtSecs.value; 
+		var MYXMLHTTP = new XMLHttpRequest(); //Not IE	
+		MYXMLHTTP.open ("post",URL,false); 
+		MYXMLHTTP.send(); 
+	} 
+	else if(window.ActiveXObject)
+	{
+		var Frm = document.SDForm; 
+		var URL = "../../not-available.html"+Frm.txtResponse_1.value+"&txtMins="+Frm.txtMins.value+"&txtSecs="+Frm.txtSecs.value; 
+
+		var MYXMLHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+		MYXMLHTTP.open ("post",URL,false); 
+		MYXMLHTTP.send(); 
+	} 
+}
+
+function onBodyLoad()
+{
+//	document.SDForm.txtResponse.focus(); 
+//	Timer();
+	setTimeout("Timer()",1000)
+}
+
+function onTextPaste()
+{
+	event.returnValue = false
+}
+
+</script>
+</head>
+
+<body onLoad="onBodyLoad()">
+<form name="SDForm" method="post" action="../../not-available.html" onSubmit="return check()">
+<table width="80%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <th scope="row" height="100%" valign="top" bgcolor="#620505"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%" bgcolor="#FFFFFF"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%" bgcolor="#FFFFFF"><div align="center" class="style8">J4M - Caption Contest </div></td>
+          </tr>
+        </table>
+			  </td>
+            </tr>
+          </table>
+            <table width="100%" border="0" align="center" cellpadding="1" cellspacing="1">
+              <tr>
+                <td width="35%" class="style3" scope="row"><div align="center">Visual </div></td>
+                <td width="30%" rowspan="4" class="style3" valign="top"><br><br>
+                  <br>
+                  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <th class="style1" scope="row">Timer</th>
+                  </tr>
+                  <tr>
+                    <th scope="row"><div align="center">
+                        <input name="txtMins" type="text" class="FormField" id="txtMins" value="" size="2" maxlength="2" readonly>
+                        <span class="style2">Min.</span>
+                        <input name="txtSecs" type="text" class="FormField" id="txtSecs" value="" size="2" maxlength="2" readonly>
+                        <span class="style2">Sec.</span> </div></th>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td bgcolor="#620505"><div align="center">
+                  <table width="50%" border="1" cellpadding="1" cellspacing="1" bordercolor="#FFFFFF">
+                    <tr>
+                      <td><img src="Contest-Images/Image-06.jpg" width="570" height="380"></td>
+                    </tr>
+                  </table>
+                </div></td>
+                </tr>
+              <tr>
+                <td><div align="center" class="style3 style7">Please type your caption for this visual in the Text Box below  </div></td>
+                </tr>
+              <tr>
+                <td><div align="center"><textarea name="txtResponse_1" cols="50" rows="6" id="txtResponse_1"></textarea>
+                </div></td>
+                </tr>
+            </table>
+            <div align="center"><br>
+              <input type="submit" name="Submit" value="SUBMIT">
+              <br>
+                <br>
+            </div>
+            <div align="center" id="MsgDiv" class="style3"><br><br/><br /></div>
+			</td>
+      </tr>
+    </table></th>
+  </tr>
+  <tr>
+    <th scope="row"><span class="style5">All rights reserved &copy; Scooldudes.com</span></th>
+  </tr>
+</table>
+</form>
+</body>
+</html>

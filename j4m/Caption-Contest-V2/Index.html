@@ -1,0 +1,250 @@
+<html>
+<head>
+<title>Scooldudes | J4M Contest</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+a:visited {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+a:hover {
+	color: #FFFFCC;
+	text-decoration: none;
+}
+a:active {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+.FormField {
+	font-family: "Comic Sans MS";
+	background-color: #620505;
+	font-size: 36px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-position: center center;
+	text-align: center;
+}
+.style3 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+.style5 {	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.style6 {
+	font-family: "Comic Sans MS";
+	color: #003366;
+}
+.style2 {	font-family: "Comic Sans MS";
+	font-size: 18px;
+	color: #FFCC00;
+	font-weight: normal;
+}
+.style9 {font-size: 18px}
+.style10 {font-family: "Comic Sans MS"; color: #003366; font-size: 18px; }
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function onBodyLoad()
+{
+	var Frm = document.SDForm; 
+	
+	Frm.txtDate.value = ""; 
+	Frm.txtMonth.value = ""; 
+	Frm.txtYear.value = ""; 
+
+	Frm.txtHours.value = ""; 
+	Frm.txtMins.value = ""; 
+	Frm.txtSecs.value = ""; 
+
+	Timer();
+}
+
+function Timer()
+{
+	var Frm = document.SDForm; 
+
+	var SysDate = parseInt(Frm.txtDate.value); 
+	var Hours = parseInt(Frm.txtHours.value); 
+	var Mins = parseInt(Frm.txtMins.value);	
+	var Secs = parseInt(Frm.txtSecs.value);	
+
+//	Frm.submit(); 
+
+	if(parseInt(SysDate) == 14) 
+	{
+		if(parseInt(Hours) >= 10)
+		{
+			Frm.submit(); 
+		}
+	}
+
+
+	Secs = Secs+1;
+
+	if(Secs == 60)
+	{
+		Mins = Mins+1; 
+		Secs = 0; 
+		
+		if(Mins == 60)
+		{
+			Hours = Hours+1; 
+			Mins = 0; 
+			Secs = 0;
+		}
+	}
+	
+	Frm.txtHours.value = Hours
+	Frm.txtMins.value = Mins
+	Frm.txtSecs.value = Secs 
+	
+	setTimeout("Timer()",1000); 
+}
+
+</script>
+</head>
+<body bgcolor="#FFFFFF" onLoad="onBodyLoad()">
+<form name="SDForm" method="post" action="../../not-available.html">
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '446523015464787', // App ID
+    channelUrl : 'http//www.scooldudes.com/channel.html', // Channel File
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
+
+  // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
+  // for any authentication related change, such as login, logout or session refresh. This means that
+  // whenever someone who was previously logged out tries to log in again, the correct case below 
+  // will be handled. 
+  FB.Event.subscribe('auth.authResponseChange', function(response) {
+    // Here we specify what we do with the response anytime this event occurs. 
+    if (response.status === 'connected') {
+      // The response object is returned with a status field that lets the app know the current
+      // login status of the person. In this case, we're handling the situation where they 
+      // have logged in to the app.
+      getFBvalues();
+    } else if (response.status === 'not_authorized') {
+      // In this case, the person is logged into Facebook, but not into the app, so we call
+      // FB.login() to prompt them to do so. 
+      // In real-life usage, you wouldn't want to immediately prompt someone to login 
+      // like this, for two reasons:
+      // (1) JavaScript created popup windows are blocked by most browsers unless they 
+      // result from direct interaction from people using the app (such as a mouse click)
+      // (2) it is a bad experience to be continually prompted to login upon page load.
+      FB.login();
+    } else {
+      // In this case, the person is not logged into Facebook, so we call the login() 
+      // function to prompt them to do so. Note that at this stage there is no indication
+      // of whether they are logged into the app. If they aren't then they'll see the Login
+      // dialog right after they log in to Facebook. 
+      // The same caveats as above apply to the FB.login() call here.
+      FB.login();
+    }
+  });
+  };
+
+  // Load the SDK asynchronously
+  (function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+  // Here we run a very simple test of the Graph API after login is successful. 
+  // This testAPI() function is only called in those cases. 
+  function getFBvalues()
+  {
+    FB.api('/me', function(response) {
+
+	document.getElementById("hdnFBUserID").value=response.id;
+	document.getElementById("hdnFBUserName").value=response.name;
+	document.getElementById("hdnFBUserEmailID").value=response.email;
+	document.getElementById("hdnFBUserDOB").value=response.birthday;
+
+	document.SDForm.submit();
+    });
+  }
+</script>
+<table width="1000" height="291" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td valign="top" bgcolor="#FFFFFF">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%"><div align="center" class="style3">J4M - Caption Contest </div></td>
+          </tr>
+        </table>
+		</td>
+	</tr>
+	<tr>
+	  <td colspan="3" valign="top" bgcolor="#FFFFFF" ><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top"> <p align="justify">&nbsp;</p>
+              <table width="40%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="50%"><div align="center" class="page-sub-heading">
+                      <div align="left" class="style6 style9">Scooldudes Login </div>
+                  </div></td>
+                  <td width="50%"><div align="center" class="page-sub-heading">
+                      <div align="left" class="style10">Facebook Login </div>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td><div align="left"><a href="login.html"><img src="images/scooldudes-icon.jpg" width="103" height="63" border="0"></a></div></td>
+                  <td align="center"><div align="center">
+                    <div id="fb-root">
+                      <fb:login-button scope="email,user_birthday" width="200" max-rows="1"></fb:login-button>
+                    </div>
+                    <input type="hidden" id="hdnFBUserID" name="hdnFBUserID" value="">
+                      <input type="hidden" id="hdnFBUserName" name="hdnFBUserName" value="">
+                      <input type="hidden" id="hdnFBUserEmailID" name="hdnFBUserEmailID" value="">
+                      <input type="hidden" id="hdnFBUserDOB" name="hdnFBUserDOB" value="">
+                      <span class="style2">
+                      <input name="hdnContestCode" type="hidden" id="hdnContestCode" value="DA52156E-7981-46BA-9AA0-C37C3D3447A0">
+                      </span></div></td>
+                </tr>
+              </table>
+              <br>
+              <table width="40%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="style6 style9">If you do not have the above login access, <br>
+                    <a href="Register.html"><font color="#0033CC">Click Here</font></a> to participate in the Contest </td>
+                </tr>
+              </table>
+              <br>
+              <font color="#FFFFFF" size="4" face="Kristen ITC"><br>
+              </font></td>
+          </tr>
+        </table>
+        <div align="center"><br>
+        <span class="style5">All rights reserved &copy; Scooldudes.com</span>      </div></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

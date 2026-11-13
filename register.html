@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scooldudes</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<link href="css/slide.css" rel="stylesheet" type="text/css" />
+<link href="css/component.css" rel="stylesheet" type="text/css"  />
+
+<link href="css/iphone.css" rel="stylesheet" type="text/css" />
+<link href="css/tablet.css" rel="stylesheet" type="text/css" />
+<link href="css/destop.css" rel="stylesheet" type="text/css" />
+<link href="css/sweet-alert.css" rel="stylesheet" type="text/css" >
+
+<script src="js/modernizr.custom.js"></script>
+<script src="js/sweet-alert.min.js"></script>
+
+<script>
+
+function check()
+{
+	var Frm = document.SDForm
+
+	if(Frm.txtFullName.value == "")
+	{
+		Frm.txtFullName.focus();
+		sweetAlert("Enter Your Name");
+		return false;
+	}
+
+	if(Frm.lstGender.value == "")
+	{
+		Frm.lstGender.focus();
+		sweetAlert("Select your Gender.")
+		return false;
+	}
+
+	if(Frm.txtDOBDate.value == "")
+	{
+		Frm.txtDOBDate.focus();
+		sweetAlert("Enter Date Of Birth");
+		return false;
+	}
+
+	if(Frm.txtDOBMonth.value == "")
+	{
+		Frm.txtDOBMonth.focus();
+		sweetAlert("Enter Date Of Birth");
+		return false;
+	}
+
+	if(Frm.txtDOBYear.value == "")
+	{
+		Frm.txtDOBYear.focus()
+		sweetAlert("Enter Date Of Birth")
+		return false
+	}
+
+	var DateErrMsg = IsValidDate(Frm.txtDOBDate.value,Frm.txtDOBMonth.value,Frm.txtDOBYear.value)
+	if(DateErrMsg != "")
+	{
+		Frm.txtDOBDate.focus();
+		sweetAlert(DateErrMsg);
+		return false;
+	}
+
+	var DOBDate = Frm.txtDOBMonth.value + "/" + Frm.txtDOBDate.value + "/" + Frm.txtDOBYear.value 
+	DOBDateObj 	= new Date(DOBDate)
+	sysDate		= new Date()
+
+	if(DOBDateObj > sysDate)
+	{
+		Frm.txtDOBDate.focus();
+		sweetAlert("Date Of Birth Date can not be grater than System Date");
+		return false;
+	}
+
+	if(Frm.txtMobileNo.value == "")
+	{
+		Frm.txtMobileNo.focus()
+		sweetAlert("Enter your Mobile No.")
+		return false
+	}
+	else
+	{
+		if(isNaN(Frm.txtMobileNo.value))
+		{
+			Frm.txtMobileNo.focus();
+			sweetAlert("Special Charecter is NOT allowed for Mobile No. \n\n Only numbers are allowed.")
+			return false;
+		}
+	}
+
+	if(Frm.lstYourClass.value == "")
+	{
+		Frm.lstYourClass.focus()
+		sweetAlert("Select your Grade")
+		return false
+	}
+
+	if(Frm.txtSchoolName.value == "")
+	{
+		Frm.txtSchoolName.focus()
+		sweetAlert("Enter School Name")
+		return false
+	}
+
+	if(Frm.txtLocation.value == "")
+	{
+		Frm.txtLocation.focus();
+		sweetAlert("Enter your Location");
+		return false;
+	}
+
+	if(Frm.txtState.value == "")
+	{
+		Frm.txtState.focus();
+		sweetAlert("Enter your State Name");
+		return false;
+	}
+
+	if(Frm.txtCountry.value == "")
+	{
+		Frm.txtCountry.focus();
+		sweetAlert("Select your Country Name");
+		return false;
+	}
+
+	if(Frm.txtEmailID.value == "")
+	{
+		Frm.txtEmailID.focus(); 
+		sweetAlert("Enter your Email ID");
+		return false;
+	}
+	else
+	{
+	 
+	   var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+	   if(emailPattern.test(Frm.txtEmailID.value) == false)
+	   {
+			Frm.txtEmailID.focus(); 
+			sweetAlert("Email ID is not valid")
+			return false;
+	   }
+	}
+
+	if(Frm.txtPassword.value == "")
+	{
+		Frm.txtPassword.focus()
+		sweetAlert("Enter your Password")
+		return false
+	}
+
+	if(Frm.lstKnowFrom.value == "")
+	{
+		Frm.lstKnowFrom.focus()
+		sweetAlert("Please select, How did you know about scooldudes?")
+		return false
+	}
+	
+	if(Frm.lstFreetime.value == "")
+	{
+		Frm.lstFreetime.focus();
+		sweetAlert("Please select, What do you like to do in your free time?");
+		return false;
+	}
+	
+	if(Frm.lstGetInvolvedIn.value == "")
+	{
+		Frm.lstGetInvolvedIn.focus();
+		sweetAlert("Please select, What would you like get more involved in?");
+		return false;
+	}
+
+	if(Frm.chkCodeOfConduct.checked == false)
+	{
+		Frm.chkCodeOfConduct.focus();
+		sweetAlert("Please read and accept Code of Conduct.");
+		return false;
+	}
+
+	if(Frm.chkTermsofUse.checked == false)
+	{
+		Frm.chkTermsofUse.focus();
+		sweetAlert("Please read and accept Terms Of Use.");
+		return false;
+	}
+}
+
+function IsValidDate(day,month,year) 
+{
+	if(day.length<1 || month.length<1 || year.length<4)
+	{
+		msg = "Date should be in the format DD/MM/YYYY";
+		return msg;
+	}
+	if(day>31 || month>12 )
+	{
+		msg="Invalid Date";	
+		return msg;
+	}
+	if(year<1900 )
+	{
+		msg="Invalid Year";	
+		return msg;
+	}
+	if(isNaN(day) || isNaN(month) || isNaN(year))
+	{
+		msg = "Invalid Date";
+		return msg;
+	}
+	msg = ""
+	if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+		msg = "Month "+month+" doesn't have 31 days!"
+		return msg;
+	}
+	if (month == 2) { // check for february 29th
+		var isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+		if (day>29 || (day==29 && !isleap)) {
+			msg = "Invalid Date";
+			return msg;
+	   }
+	}
+	return ""
+}
+
+</script>
+
+</head>
+
+<body>
+<form name="SDForm" method="post" action="not-available.html"  onSubmit="return check()" >
+<section class="main_wrapper">
+	<div class="top_menu">
+    	<div class="main">
+    		<div class="colu">
+				<div id="dl-menu" class="dl-menuwrapper">
+					<button class="dl-trigger">Open Menu</button>
+					<ul class="dl-menu">
+						<li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contests.html">Contests</a></li>
+                        <li><a href="hi-fliers.html">Hi Fliers</a></li>
+                        <li><a href="winners.html">Winners</a></li>
+                        <li><a href="P-files.html">PARENT BUZZ</a></li>
+                        <li><a href="outdoor-activities.html">Outdoor Activities</a></li>
+                        <li><a href="community-connect.html">Community Connect</a></li>
+                        <li><a href="refer-friend.html">Refer a Friend</a></li>
+                        <li class="nomenu"><a href="gallery/dec12.html" target="_blank">Careerwise</a></li>
+                        <li class="nomenu"><a href="gallery.html">Gallery</a></li>
+                        <li class="nomenu"><!-- <a href="Calendar.html">Event Calender</a>--></li>
+                        <li class="nomenu"><a href="quick-links.html">Quick Links</a></li>
+                        <li class="nomenu"><a href="dude-buzz.html">Dude Buzz</a></li>
+                        <li class="nomenu"><a href="wassup.html">Wassup</a></li>
+                        <li class="nomenu"><a href="feedback.html">Feedback</a></li>
+                        <li class="nomenu"><a href="contactus.html">Contact Us</a></li>
+                        <li class="nomenu"><a href="login-option.html">Login</a></li>
+                        <li class="nomenu"><a href="register.html">Sign Up</a></li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        <div class="clr"></div>
+    </div>
+	<header class="header">
+<meta charset="utf-8" />
+    	<h1><a href="index.html"><img src="images/logo.png" alt="" title="" /></a></h1>
+        <figure><img src="images/bag.png" alt="" /></figure>
+        <span>
+        	<a href="https://www.facebook.com/scooldudez" target="_blank"><img src="images/facebook.png" alt="" /></a>
+            <a href="https://twitter.com/search?q=Scooldudes" target="_blank"><img src="images/twitter.png" alt="" /></a>
+            <a href="https://scooldudes.wordpress.com/" target="_blank"><img src="images/sdwordpress.png" alt="" /></a>		
+        </span>
+         <ul>
+        	<li>
+            	<a href="login-option.html">Login</a>
+                <a href="register.html">Sign Up</a>
+            </li>
+            <li>
+            	<!-- <a href="Calendar.html">Event Calender</a>-->
+                <a href="quick-links.html">Quick Links</a>
+                <a href="dude-buzz.html">Dude Buzz</a>
+                <a href="wassup.html">Wassup</a>
+            </li>
+            <li>
+            	<a href="gallery/dec12.html" target="_blank">Careerwise</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="contactus.html">Contact Us</a>
+            </li>
+        </ul>
+        <div class="clr"></div>
+    </header>
+    <div class="menubg">
+    	<div class="menu">
+        	<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="contests.html">Contests</a></li>
+				<li><a href="hi-fliers.html">Hi Fliers</a></li>
+				<li><a href="winners.html">Winners</a></li>
+				<li><a href="P-files.html">PARENT BUZZ</a></li>
+				<li><a href="outdoor-activities.html">Outdoor Activities</a></li>
+				<li><a href="community-connect.html">Community Connect</a></li>
+				<li><a href="refer-friend.html">Refer a Friend</a></li>
+            </ul>
+            <div class="clr"></div>
+        </div>
+    </div>
+	<section class="banner">
+    	<section class="slider-container" id="caption-slide">
+        	<section class="slider"> 
+            	<div><img src="images/slider/careerplanning.jpg" alt="">                </div>
+  				<div><img src="images/slider/donatebook.jpg" alt="">
+                	<p class="caption">Donate Book for Cause</p>
+                </div>
+  				<div><img src="images/slider/get-real-world-exp.jpg" alt="">
+                	<p class="caption">Get real-world experience</p>
+                </div>
+                <div><img src="images/slider/j4m.jpg" alt="">
+                	<p class="caption">Just four minutes…. a novel contest</p>
+                </div>
+                <div><img src="images/slider/lifeskillscamp.jpg" alt="">
+                	<p class="caption">To be with mother nature</p>
+                </div>
+                <div><img src="images/slider/xpy.jpg" alt="">
+                	<p class="caption">Express Yourself</p>
+                </div>
+                <div><img src="images/slider/hi-flier.jpg" alt="">
+                	<p class="caption">After School Success Stories</p>
+                </div>
+          </section>
+            <div class="switch" id="prev"><span></span></div>
+			<div class="switch" id="next"><span></span></div>
+        </section>
+    </section>
+    
+	<section class="contant">
+		<section class="feedback">
+        	<h3>Sign Up</h3>
+        	<p>
+            	<label>Your Name:</label>
+                <input name="txtFullName" type="text" id="txtFullName" maxlength="50">
+            </p>
+            <p>
+            	<label>Gender:</label>
+				<select name="lstGender" id="lstGender">
+				  <option value="">Select Your Gender</option>
+				  <option value="M">Male</option>
+				  <option value="F">Female</option>
+				</select>
+            </p>
+            <p>
+            	<label>Date Of Birth:</label>
+				<input name="txtDOBDate" type="text" id="txtDOBDate" maxlength="2" style="width:20px">
+				<input name="txtDOBMonth" type="text" id="txtDOBMonth" maxlength="2" style="width:20px">
+				<input name="txtDOBYear" type="text" id="txtDOBYear" maxlength="4" style="width:40px">
+            </p>
+        	<p>
+            	<label>Mobile No:</label>
+                <input name="txtMobileNo" type="text" id="txtMobileNo" maxlength="50">
+            </p>
+        	<p>
+            	<label>Grade:</label>
+				  <select name="lstYourClass" id="lstYourClass">
+					<option value="">Select Your Class</option>
+					<option value="6">VI</option>
+					<option value="7">VII</option>
+					<option value="8">VIII</option>
+					<option value="9">IX</option>
+					<option value="10">X</option>
+					<option value="11">XI</option>
+					<option value="12">XII</option>
+				  </select>
+            </p>
+        	<p>
+            	<label>School Name:</label>
+                <input name="txtSchoolName" type="text" id="txtSchoolName" maxlength="50">
+            </p>
+        	<p>
+            	<label>Location (City / Town Name):</label>
+                <input name="txtLocation" type="text" id="txtLocation" maxlength="50">
+            </p>
+        	<p>
+            	<label>State:</label>
+                <input name="txtState" type="text" id="txtState" maxlength="50">
+            </p>
+        	<p>
+            	<label>Country:</label>
+                <input name="txtCountry" type="text" id="txtCountry" maxlength="50">
+            </p>
+        	<p>
+            	<label>e-Mail:</label>
+                <input name="txtEmailID" type="text" id="txtEmailID" maxlength="50">
+            </p>
+        	<p>
+            	<label>Password:</label>
+                <input name="txtPassword" type="password" id="txtPassword" maxlength="50">
+            </p>
+        	<p>
+            	<label>How did you know about scooldudes?</label>
+					<select name="lstKnowFrom" id="lstKnowFrom">
+					  <option value="">Please Select ??</option>
+          
+          <option value=""></option>
+          
+					</select>
+            </p>
+            <p>
+            	<label>What do you like to do in your free time? </label>
+				<select name="lstFreetime" id="lstFreeTime">
+					<option value="" selected>Please Select ??</option>
+					<option value="Read Books">Read Books</option>
+					<option value='Listen To Music'>Listen To Music</option>
+					<option value='Watch Tv'>Watch Tv</option>
+					<option value='Browse'>Browse</option>
+					<option value='Play Videogames'>Play Videogames</option>
+					<option value='Play Sports'>Play Sports</option>
+					<option value='Photography'>Photography</option>
+					<option value='Art'>Art</option>
+					<option value='Others'>Others</option>
+				</select> 
+            </p>
+            <p>
+            	<label>What would you like get more involved in?</label>
+				<select name="lstGetInvolvedIn" class="FormElements" id="lstGetInvolvedIn">
+					<option value="" selected>Please Select ??</option>
+					<option value='Outdoor Activities'>Outdoor Activities</option>
+					<option value='Community Service'>Community Service</option>
+					<option value='Personality Development And Communication Skills'>Personality Development & Communication Skills</option>
+					<option value='Yoga Workshops'>Yoga Workshops</option>
+					<option value='Career Counselling'>Career Counselling</option>
+					<option value='Others'>Others</option>
+				</select>
+            </p>
+			<p><input name="chkCodeOfConduct" type="checkbox" id="chkCodeOfConduct" value="checkbox">I have read the Code of Conduct and accept it.  <a href="CodeOfConduct.html" class="ahref_link" target="_blank">Click here to read Code of Conduct</a></p>
+			<p><input name="chkTermsofUse" type="checkbox" id="chkTermsofUse" value="checkbox">I have read the Terms Of Use and accept it.  <a href="Termsofuse.html" class="ahref_link" target="_blank">Click here to read Terms Of Use</a></p>
+            <p>
+            	<label>&nbsp;</label>
+                <input name="" type="submit" value="Submit">
+            </p>
+		</section>
+		
+		
+		<div class="clr"></div>
+	</section>
+</section>
+
+
+
+
+<footer class="footerbg">
+	<section class="footer">
+        <p>Terms Of Use Purchase, Cancellation And Refunds Policies <span>All rights reserved &copy; Scooldudes.com</span></p>
+    </section>
+</footer>
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript">
+	$("#slider-container").sliderUi({
+		speed: 700,
+		cssEasing: "cubic-bezier(0.285, 1.015, 0.165, 1.000)"
+	});
+	$("#caption-slide").sliderUi({
+		caption: true
+	});
+</script>
+
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.dlmenu.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$( '#dl-menu' ).dlmenu();
+	});
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-42280371-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</form>
+</body>
+</html>

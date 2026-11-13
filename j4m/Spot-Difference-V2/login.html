@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<title>Scooldudes | J4M Contest</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.style2 {
+	font-family: "Comic Sans MS";
+	font-size: 18px;
+	color: #FFCC00;
+	font-weight: normal;
+}
+.style3 {
+	font-family: "Comic Sans MS";
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: normal;
+}
+.style5 {
+	font-family: "Comic Sans MS";
+	font-weight: normal;
+	font-size: 14px;
+	color: #003399;
+}
+.FromField {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	border: thin solid #FFFFCC;
+}
+.style9 {color: #FFFFFF}
+.style10 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+.style11 {
+	font-family: "Comic Sans MS";
+	color: #FFFFFF;
+}
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function check()
+{
+	var Frm = document.SDForm; 
+
+	if(Frm.txtUserCode.value == "")
+	{
+		alert("Please enter your User ID");
+		Frm.txtUserCode.focus(); 
+		return false; 
+	}
+
+	if(Frm.txtPassword.value == "")
+	{
+		alert("Please enter your Password");
+		Frm.txtPassword.focus(); 
+		return false; 
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<form name="SDForm" method="post" action="../../not-available.html" onSubmit="return check()">
+<table width="80%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <th scope="row" height="100%" valign="top" bgcolor="#620505"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100%"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td><div align="center">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%"><div align="center" class="style10">J4M - Eagle Eye Contest </div></td>
+          </tr>
+        </table></td>
+	</tr>
+
+                </table>
+              </div></td>
+            </tr>
+          </table>
+            <br />
+            <div align="center"> <span class="style1"><br>
+              Welcome to J4M Contest</span><br />
+                <br />
+                <span class="style2">Please enter your User Id and Password <br>
+                </span>
+            </div>
+          <br />
+            <table width="30%" border="0" align="center" cellpadding="4" cellspacing="0">
+              <tr>
+                <td width="55%"><div align="left" class="style3">User Id </div></td>
+                <td width="45%"><label>
+                    <div align="left">
+                      <input name="txtUserCode" type="text" class="FromField" id="txtUserCode" size="30" maxlength="50" />
+                    </div>
+                  </label></td>
+              </tr>
+              <tr>
+                <td><div align="left" class="style3">Password</div></td>
+                <td><div align="left">
+                    <input name="txtPassword" type="password" class="FromField" id="txtPassword" size="15" maxlength="10" />
+                </div></td>
+              </tr>
+            </table>
+            <div align="center"><br>
+			<span class="style11">
+			</span>
+                <span class="style2">
+                <input name="hdnContestCode" type="hidden" id="hdnContestCode" value="E37B69C7-72B1-4921-B5C4-201AEFDFA509">
+                <input type="submit" name="Submit" value="Login" />
+                  </span><br />
+            </div>
+            <div align="center" class="style2"><br />
+                <br />
+                <br>
+            </div></td>
+      </tr>
+    </table></th>
+  </tr>
+  <tr>
+    <th scope="row"><span class="style5">All rights reserved &copy; Scooldudes.com</span></th>
+  </tr>
+</table>
+</form>
+</body>
+</html>

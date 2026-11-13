@@ -1,0 +1,128 @@
+﻿about-founder.asp -> about-founder.html  (server code removed)
+aboutus.asp -> aboutus.html  (server code removed)
+Calendar.aspx -> Calendar.html  (server code removed)
+camp_discovery.asp -> camp_discovery.html  (server code removed)
+CodeOfConduct.html -> CodeOfConduct.html
+community-connect.asp -> community-connect.html  (server code removed)
+contactus.asp -> contactus.html  (server code removed)
+ContentView.aspx -> ContentView.html  (server code removed)
+contests.asp -> contests.html  (server code removed)
+dataFrom.htm -> dataFrom.htm
+dec12.html -> dec12.html
+dude-buzz.asp -> dude-buzz.html  (server code removed)
+events/AboutEvent.aspx -> events/AboutEvent.html  (server code removed)
+events/about-events/Nagalapuram.html -> events/about-events/Nagalapuram.html
+events/Event-calendar.asp -> events/Event-calendar.html  (server code removed)
+events/Event-calendar_new.asp -> events/Event-calendar_new.html
+events/EventRegister.aspx -> events/EventRegister.html  (server code removed)
+events/Login.aspx -> events/Login.html  (server code removed)
+events/Message.aspx -> events/Message.html  (server code removed)
+events/UserRegister.aspx -> events/UserRegister.html  (server code removed)
+experts-profile.asp -> experts-profile.html  (server code removed)
+feedback.asp -> feedback.html  (server code removed)
+feedback.html -> feedback.html
+ForceLogin.asp -> ForceLogin.html  (server code removed)
+gallery.asp -> gallery.html  (server code removed)
+gallery/dec12.html -> gallery/dec12.html
+galleryview.asp -> galleryview.html  (server code removed)
+getsetgo.asp -> getsetgo.html
+hiflier-Aarathy-Kasturiraj.asp -> hiflier-Aarathy-Kasturiraj.html  (server code removed)
+hiflier-Aharika-Bhaskar.asp -> hiflier-Aharika-Bhaskar.html  (server code removed)
+hiflier-Anthony-Savio.asp -> hiflier-Anthony-Savio.html  (server code removed)
+hiflier-Asthana.asp -> hiflier-Asthana.html  (server code removed)
+hiflier-Athira.asp -> hiflier-Athira.html  (server code removed)
+hiflier-Kartik-Ramasubramanium.asp -> hiflier-Kartik-Ramasubramanium.html  (server code removed)
+hiflier-Koushik.asp -> hiflier-Koushik.html  (server code removed)
+hiflier-Lakshmi-Priya.asp -> hiflier-Lakshmi-Priya.html  (server code removed)
+hiflier-Mahathi.asp -> hiflier-Mahathi.html  (server code removed)
+hiflier-Parnali-Dhariya.asp -> hiflier-Parnali-Dhariya.html  (server code removed)
+hiflier-Parnali-Dhariya_old.asp -> hiflier-Parnali-Dhariya_old.html
+hiflier-Ram-Aravind.asp -> hiflier-Ram-Aravind.html  (server code removed)
+hi-fliers.asp -> hi-fliers.html  (server code removed)
+hiflier-ShravanKumaranAndSanjayKumaran.asp -> hiflier-ShravanKumaranAndSanjayKumaran.html  (server code removed)
+hiflier-Siddharth.asp -> hiflier-Siddharth.html  (server code removed)
+hiflier-sindhuja.asp -> hiflier-sindhuja.html  (server code removed)
+hiflier-Soumasekhar.asp -> hiflier-Soumasekhar.html  (server code removed)
+hiflier-sri-anisha.asp -> hiflier-sri-anisha.html  (server code removed)
+hiflier-Vaibhav-Venkatraman.asp -> hiflier-Vaibhav-Venkatraman.html  (server code removed)
+index.asp -> index.html  (server code removed)
+index-video.asp -> index-video.html  (server code removed)
+j4m/Caption-Contest/Contest.asp -> j4m/Caption-Contest/Contest.html  (server code removed)
+j4m/Caption-Contest/Index.asp -> j4m/Caption-Contest/Index.html  (server code removed)
+j4m/Caption-Contest/Instructions.asp -> j4m/Caption-Contest/Instructions.html  (server code removed)
+j4m/Caption-Contest/login.asp -> j4m/Caption-Contest/login.html  (server code removed)
+j4m/Caption-Contest/Message.asp -> j4m/Caption-Contest/Message.html  (server code removed)
+j4m/Caption-Contest/Statement.asp -> j4m/Caption-Contest/Statement.html  (server code removed)
+j4m/Caption-Contest-V2/Contest.asp -> j4m/Caption-Contest-V2/Contest.html  (server code removed)
+j4m/Caption-Contest-V2/Index.asp -> j4m/Caption-Contest-V2/Index.html  (server code removed)
+j4m/Caption-Contest-V2/Instructions.asp -> j4m/Caption-Contest-V2/Instructions.html  (server code removed)
+j4m/Caption-Contest-V2/login.asp -> j4m/Caption-Contest-V2/login.html  (server code removed)
+j4m/Caption-Contest-V2/logout-message.asp -> j4m/Caption-Contest-V2/logout-message.html  (server code removed)
+j4m/Caption-Contest-V2/Message.asp -> j4m/Caption-Contest-V2/Message.html  (server code removed)
+j4m/Caption-Contest-V2/Register.asp -> j4m/Caption-Contest-V2/Register.html  (server code removed)
+j4m/Caption-Contest-V2/Statement.asp -> j4m/Caption-Contest-V2/Statement.html  (server code removed)
+j4m/Spot-Difference-V2/Contest.asp -> j4m/Spot-Difference-V2/Contest.html  (server code removed)
+j4m/Spot-Difference-V2/Index.asp -> j4m/Spot-Difference-V2/Index.html  (server code removed)
+j4m/Spot-Difference-V2/Instructions.asp -> j4m/Spot-Difference-V2/Instructions.html  (server code removed)
+j4m/Spot-Difference-V2/login.asp -> j4m/Spot-Difference-V2/login.html  (server code removed)
+j4m/Spot-Difference-V2/logout-message.asp -> j4m/Spot-Difference-V2/logout-message.html  (server code removed)
+j4m/Spot-Difference-V2/Message.asp -> j4m/Spot-Difference-V2/Message.html  (server code removed)
+j4m/Spot-Difference-V2/Register.asp -> j4m/Spot-Difference-V2/Register.html  (server code removed)
+j4m/Spot-Difference-V2/Statement.asp -> j4m/Spot-Difference-V2/Statement.html  (server code removed)
+j4m/Visual-Expression-V2/Contest.asp -> j4m/Visual-Expression-V2/Contest.html  (server code removed)
+j4m/Visual-Expression-V2/Index.asp -> j4m/Visual-Expression-V2/Index.html  (server code removed)
+j4m/Visual-Expression-V2/Instructions.asp -> j4m/Visual-Expression-V2/Instructions.html  (server code removed)
+j4m/Visual-Expression-V2/login.asp -> j4m/Visual-Expression-V2/login.html  (server code removed)
+j4m/Visual-Expression-V2/logout-message.asp -> j4m/Visual-Expression-V2/logout-message.html  (server code removed)
+j4m/Visual-Expression-V2/Message.asp -> j4m/Visual-Expression-V2/Message.html  (server code removed)
+j4m/Visual-Expression-V2/Register.asp -> j4m/Visual-Expression-V2/Register.html  (server code removed)
+j4m/Visual-Expression-V2/Statement.asp -> j4m/Visual-Expression-V2/Statement.html  (server code removed)
+j4m/Written-Expression/Contest.asp -> j4m/Written-Expression/Contest.html  (server code removed)
+j4m/Written-Expression/Index.asp -> j4m/Written-Expression/Index.html  (server code removed)
+j4m/Written-Expression/Instructions.asp -> j4m/Written-Expression/Instructions.html  (server code removed)
+j4m/Written-Expression/login.asp -> j4m/Written-Expression/login.html  (server code removed)
+j4m/Written-Expression/Message.asp -> j4m/Written-Expression/Message.html  (server code removed)
+j4m/Written-Expression/Statement.asp -> j4m/Written-Expression/Statement.html  (server code removed)
+j4m/Written-Expression-V2/Contest.asp -> j4m/Written-Expression-V2/Contest.html  (server code removed)
+j4m/Written-Expression-V2/Index.asp -> j4m/Written-Expression-V2/Index.html  (server code removed)
+j4m/Written-Expression-V2/Instructions.asp -> j4m/Written-Expression-V2/Instructions.html  (server code removed)
+j4m/Written-Expression-V2/login.asp -> j4m/Written-Expression-V2/login.html  (server code removed)
+j4m/Written-Expression-V2/logout-message.asp -> j4m/Written-Expression-V2/logout-message.html  (server code removed)
+j4m/Written-Expression-V2/Message.asp -> j4m/Written-Expression-V2/Message.html  (server code removed)
+j4m/Written-Expression-V2/Register.asp -> j4m/Written-Expression-V2/Register.html  (server code removed)
+j4m/Written-Expression-V2/Statement.asp -> j4m/Written-Expression-V2/Statement.html  (server code removed)
+j4m-contests.asp -> j4m-contests.html
+lifeskills.asp -> lifeskills.html
+login.asp -> login.html  (server code removed)
+login-option.asp -> login-option.html
+message.asp -> message.html  (server code removed)
+MultiviewGalleryPost.asp -> MultiviewGalleryPost.html  (server code removed)
+nanda_kumar.asp -> nanda_kumar.html
+nandakumar.asp -> nandakumar.html
+outdoor-activities.asp -> outdoor-activities.html  (server code removed)
+PaymentAndCancellationTerms.html -> PaymentAndCancellationTerms.html
+P-files.asp -> P-files.html  (server code removed)
+photo_gallery.asp -> photo_gallery.html
+poll.asp -> poll.html  (server code removed)
+PurchaseCancellationAndRefunds.html -> PurchaseCancellationAndRefunds.html
+quick-links.asp -> quick-links.html  (server code removed)
+Ramachandran-Kannan-60-Seconds-Chief.html -> Ramachandran-Kannan-60-Seconds-Chief.html
+refer-friend.asp -> refer-friend.html  (server code removed)
+reg_sdtournament.asp -> reg_sdtournament.html  (server code removed)
+register.asp -> register.html  (server code removed)
+sd-premier-league.asp -> sd-premier-league.html
+Sdtournament.asp -> Sdtournament.html  (server code removed)
+Taking-Charge-of-Your-Career.html -> Taking-Charge-of-Your-Career.html
+Termsofuse.html -> Termsofuse.html
+video-gallery.asp -> video-gallery.html
+volunteer.asp -> volunteer.html
+Volunteer-Join.asp -> Volunteer-Join.html  (server code removed)
+volunteer-team.asp -> volunteer-team.html  (server code removed)
+wassup.asp -> wassup.html  (server code removed)
+winners.asp -> winners.html  (server code removed)
+winners-Archive.asp -> winners-Archive.html  (server code removed)
+X-Form.html -> X-Form.html
+xpy.asp -> xpy.html
+xpy_post_entries.asp -> xpy_post_entries.html
+x-sd-premier-league.asp -> x-sd-premier-league.html
+X-simple.asp -> X-simple.html

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scooldudes</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/slide.css" rel="stylesheet" type="text/css" />
+    <link href="css/component.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/iphone.css" rel="stylesheet" type="text/css" />
+    <link href="css/tablet.css" rel="stylesheet" type="text/css" />
+    <link href="css/destop.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        <!--
+        .popup {
+            background-color: #FFFFFF;
+            height: 400px;
+            width: 600px;
+            border: 5px solid #666;
+            position: absolute;
+            visibility: hidden;
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: small;
+            text-align: justify;
+            padding: 5px;
+            overflow: auto;
+            z-index: 2147483647;
+            text-align: center;
+        }
+
+        .popup_bg {
+            position: absolute;
+            visibility: hidden;
+            height: 100%;
+            width: 100%;
+            left: 0px;
+            top: 0px;
+            filter: alpha(opacity=70); /* for IE */
+            opacity: 0.7; /* CSS3 standard */
+            background-color: #999;
+            z-index: 2147483646;
+        }
+
+        .close_button {
+            font-family: Verdana, Geneva, sans-serif;
+            font-size: small;
+            font-weight: bold;
+            float: right;
+            color: #666;
+            display: block;
+            text-decoration: none;
+            border: 2px solid #666;
+            padding: 0px 3px 0px 3px;
+        }
+
+        .popuptext_01 {
+            font-family: "Comic Sans MS";
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+
+        .popuptext_02 {
+            font-family: "Comic Sans MS";
+            font-size: 24px;
+            color: #FFFF00;
+        }
+
+        .popupclose {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            color: #FFFF00;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        -->
+    </style>
+
+    <script src="js/modernizr.custom.js"></script>
+
+    <script language="javascript">
+
+
+
+        function openpopup(id) {
+            //Calculate Page width and height 
+            var pageWidth = window.innerWidth;
+            var pageHeight = window.innerHeight;
+            if (typeof pageWidth != "number") {
+                if (document.compatMode == "CSS1Compat") {
+                    pageWidth = document.documentElement.clientWidth;
+                    pageHeight = document.documentElement.clientHeight;
+                } else {
+                    pageWidth = document.body.clientWidth;
+                    pageHeight = document.body.clientHeight;
+                }
+            }
+            //Make the background div tag visible...
+            var divbg = document.getElementById('bg');
+            divbg.style.visibility = "visible";
+
+            var divobj = document.getElementById(id);
+            divobj.style.visibility = "visible";
+            if (navigator.appName == "Microsoft Internet Explorer")
+                computedStyle = divobj.currentStyle;
+            else computedStyle = document.defaultView.getComputedStyle(divobj, null);
+            //Get Div width and height from StyleSheet 
+            var divWidth = computedStyle.width.replace('px', '');
+            var divHeight = computedStyle.height.replace('px', '');
+            var divLeft = (pageWidth - divWidth) / 2;
+            var divTop = (pageHeight - divHeight) / 2;
+            //Set Left and top coordinates for the div tag 
+            divobj.style.left = divLeft + "px";
+            divobj.style.top = divTop + "px";
+            //Put a Close button for closing the popped up Div tag 
+            //      if(divobj.innerHTML.indexOf("closepopup('" + id +"')") < 0 ) 
+            //      divobj.innerHTML = "<a href=\"#\" onclick=\"closepopup('" + id +"')\"><span class=\"close_button\">X</span></a>" + divobj.innerHTML; 
+        }
+
+        function closepopup(id) {
+            var divbg = document.getElementById('bg');
+            divbg.style.visibility = "hidden";
+            var divobj = document.getElementById(id);
+            divobj.style.visibility = "hidden";
+            document.getElementById("videodiv").innerHTML = "";
+        }
+
+
+    </script>
+
+
+    <script>
+
+function OptionMoveOver(Obj)
+{
+	Obj.className = "PollOptionH"
+}
+
+function OptionMoveOut(Obj)
+{
+	Obj.className = "PollOption"
+}
+
+function CheckOption(RadioIndex)
+{
+	if("" == "")
+	{
+		parent.location.href="ForceLogin.html?MsgCode=SDLG_PL0001"
+	}
+	else
+	{
+		eval("document.ScoolDudeFrm.RadioPollOption["+RadioIndex+"].checked = true") 
+		document.ScoolDudeFrm.submit();
+	}
+}
+
+function check()
+{
+	if("" == "")
+	{
+		parent.location.href="login.html?MsgCode=SDLG_PL0001"
+	}
+	else
+	{
+		document.ScoolDudeFrm.submit();	
+	}
+}
+
+    </script>
+
+
+</head>
+
+<body>
+    <section class="main_wrapper">
+        <div class="top_menu">
+            <div class="main">
+                <div class="colu">
+                    <div id="dl-menu" class="dl-menuwrapper">
+                        <button class="dl-trigger">Open Menu</button>
+                        <ul class="dl-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="aboutus.html">About Us</a></li>
+                            <li><a href="contests.html">Contests</a></li>
+                            <li><a href="hi-fliers.html">Hi Fliers</a></li>
+                            <li><a href="winners.html">Winners</a></li>
+                            <li><a href="P-files.html">PARENT BUZZ</a></li>
+                            <li><a href="outdoor-activities.html">Outdoor Activities</a></li>
+                            <li><a href="community-connect.html">Community Connect</a></li>
+                            <li><a href="refer-friend.html">Refer a Friend</a></li>
+                            <li class="nomenu"><a href="gallery/dec12.html" target="_blank">Careerwise</a></li>
+                            <li class="nomenu"><a href="gallery.html">Gallery</a></li>
+                            <li class="nomenu"><a href="Calendar.html">Event Calender</a></li>
+                            <li class="nomenu"><a href="quick-links.html">Quick Links</a></li>
+                            <li class="nomenu"><a href="dude-buzz.html">Dude Buzz</a></li>
+                            <li class="nomenu"><a href="wassup.html">Wassup</a></li>
+                            <li class="nomenu"><a href="feedback.html">Feedback</a></li>
+                            <li class="nomenu"><a href="contactus.html">Contact Us</a></li>
+                            <li class="nomenu"><a href="login-option.html">Login</a></li>
+                            <li class="nomenu"><a href="register.html">Sign Up</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <header class="header">
+<meta charset="utf-8" />
+            <h1><a href="index.html">
+                <img src="images/logo.png" alt="" title="" /></a></h1>
+            <figure>
+                <img src="images/bag.png" alt="" /></figure>
+            <span>
+                <a href="https://www.facebook.com/scooldudez" target="_blank">
+                    <img src="images/facebook.png" alt="" /></a>
+                <a href="https://twitter.com/search?q=Scooldudes" target="_blank">
+                    <img src="images/twitter.png" alt="" /></a>
+                <a href="https://scooldudes.wordpress.com/" target="_blank">
+                    <img src="images/sdwordpress.png" alt="" /></a>
+            </span>
+            
+            <ul>
+
+
+                
+
+                <li>
+                    <table width="100%" style="margin-left: 0%;">
+                        <tr>
+                            <td align="right">
+                                <table cellspacing="5px" cellpadding="5px">
+                                    <tr>
+                                        <td>
+                                            <font style="color: blue"><label></label></font>
+                                        </td>
+                                        <td style="visibility: hidden;">
+                                            <div id="divlog3" style="visibility: hidden;"><a href="not-available.html">Logout</a></div>
+                                        </td>
+                                        <td style="visibility: visible;">
+                                            <div id="divMyID1" style="visibility: visible;"><a href="login-option.html">Login</a></div>   
+                                            </td>                                     
+                                        <td style="visibility: visible;">
+                                            <div id="divMyID2" style="visibility: visible;"><a href="register.html">Sign Up</a> </div>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    <!--<a href="Calendar.html">Event Calender</a>-->
+                    <a href="quick-links.html">Quick Links</a>
+                    <a href="dude-buzz.html">Dude Buzz</a>
+                    <a href="wassup.html">Wassup</a>
+                </li>
+                <li>
+                    <a href="gallery/dec12.html" target="_blank">Careerwise</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="feedback.html">Feedback</a>
+                    <a href="contactus.html">Contact Us</a>
+                </li>
+            </ul>
+            <div class="clr">
+
+                <!--<div style="margin-left:500px;color:#273cbf"><label>HI</label><label><label>,</label></label></div>-->
+
+            </div>
+        </header>
+        <div class="menubg">
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contests.html">Contests</a></li>
+                    <li><a href="hi-fliers.html">Hi Fliers</a></li>
+                    <li><a href="winners.html">Winners</a></li>
+                    <li><a href="P-files.html">PARENT BUZZ</a></li>
+                    <li><a href="outdoor-activities.html">Outdoor Activities</a></li>
+                    <li><a href="community-connect.html">Community Connect</a></li>
+                    <li><a href="refer-friend.html">Refer a Friend</a></li>
+                </ul>
+                <div class="clr"></div>
+            </div>
+        </div>
+        <section class="banner">
+            <section class="slider-container" id="caption-slide">
+                <section class="slider">
+
+                    <div>
+                        <img src="images/slider/careerplanning.jpg" alt=""></div>
+
+                    <div>
+                        <img src="images/slider/donatebook.jpg" alt="">
+                        <p class="caption">Donate Book for Cause</p>
+                    </div>
+
+                    <div>
+                        <img src="images/slider/get-real-world-exp.jpg" alt="">
+                        <p class="caption">Get real-world experience</p>
+                    </div>
+
+                    <div>
+                        <img src="images/slider/j4m.jpg" alt="">
+                        <p class="caption">Just four minutes…. a novel contest</p>
+                    </div>
+
+                    <div>
+                        <img src="images/slider/lifeskillscamp.jpg" alt="">
+                        <p class="caption">To be with mother nature</p>
+                    </div>
+
+                    <div>
+                        <img src="images/slider/xpy.jpg" alt="">
+                        <p class="caption">Express Yourself</p>
+                    </div>
+
+                    <div>
+                        <img src="images/slider/hi-flier.jpg" alt="">
+                        <p class="caption">After School Success Stories</p>
+                    </div>
+
+                </section>
+                <div class="switch" id="prev"><span></span></div>
+                <div class="switch" id="next"><span></span></div>
+            </section>
+
+        </section>
+        <div class="top_slogan">
+            <div class="top_slogan_part01">
+                <figure><a href="gallery/dec12.html" target="_blank">
+                    <img src="images/careerwise.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part02">
+                <figure><a href="community-connect.html">
+                    <img src="images/donate.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part03">
+                <figure><a href="#">
+                    <img src="images/learn.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part04">
+                <figure><a href="sd-premier-league.html">
+                    <img src="images/whats-new.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part05">
+                <figure><a href="volunteer.html">
+                    <img src="images/volunteer.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part06">
+                <figure><a href="j4m-contests.html">
+                    <img src="images/online-contests.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part07">
+                <figure><a href="getsetgo.html">
+                    <img src="images/skills-camp.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part08">
+                <figure><a href="xpy.html">
+                    <img src="images/xpy.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part09">
+                <figure><a href="hi-fliers.html">
+                    <img src="images/hi-flier.jpg" alt="" /></a></figure>
+            </div>
+            <div class="top_slogan_part10">
+                <figure><a href="sd-premier-league.html">
+                    <img src="images/sports.jpg" alt="" /></a></figure>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <section class="contant">
+            <section class="left_contant">
+                <figure>
+                    <img src="images/welcome-group.jpg" alt="" /></figure>
+            </section>
+            <section class="mid_contant">
+                <h2>Welcome</h2>
+                <p>Scooldudes.com is a fun-filled after school hangout for children between 12 and 18 years of age. We are a young and energetic team and we want you to have some serious fun.</p>
+                <p>Which is why you have entered this online platform to express your creativity, highlight your achievements and get to know some new stuff...like Star gazing Or Scuba Diving Or Sudoku.</p>
+                <!-- <figure><a href="Sdtournament.html"><img src="images/regtournament.jpg" alt="" /></a></figure> -->
+                <p>&nbsp;</p>
+            </section>
+            <section class="right_contant">
+                <figure><a href="dude-buzz.html">
+                    <img src="images/dude-buzz.png" alt="" /></a></figure>
+                <figure><a href="wassup.html">
+                    <img src="images/wassup.png" alt="" /></a></figure>
+                <figure><a href="quick-links.html">
+                    <img src="images/quicklinks.png" alt="" /></a></figure>
+                <figure><a href="gallery.html">
+                    <img src="images/gallery.png" alt="" /></a></figure>
+                <figure>
+                    <iframe src="poll.html" height="168" style="width: 100%; background-color: red" frameborder="0" scrolling="no"></iframe>
+                    <!-- <table align="center" width="170" border="0" cellpadding="0" cellspacing="0" style="width: 210px;">
+    <tr>
+      <td width="100%" bgcolor="#0099FF" align="center" width="170" height="30"><span class="style4">Poll</span>  </td>
+	</tr>
+    <tr>
+      <td bgcolor="#99CC33">
+  <div align="center">
+
+  <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <td height="25" colspan="2" bgcolor="#E6DBCC">
+	  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="style3"><div align="center"></div></td>
+      </tr>
+    </table></td>
+  </tr>
+
+  <tr bgcolor="#FFFFCC" onClick="CheckOption('')" onMouseOver="OptionMoveOver(this)" onMouseOut="OptionMoveOut(this)">
+    <td width="5%" height="25" class="PollOption"><input name="RadioPollOption" type="radio" value="" onClick="check()"/></td>
+    <td width="95%" height="15" class="PollOption">&nbsp;</td>
+  </tr>
+
+</table>
+	  </td>
+    </tr>
+  </table>-->
+                </figure>
+            </section>
+            <div class="clr"></div>
+        </section>
+    </section>
+
+
+
+
+    <footer class="footerbg">
+        <section class="footer">
+            <p>Terms Of Use Purchase, Cancellation And Refunds Policies <span>All rights reserved &copy; Scooldudes.com</span></p>
+        </section>
+    </footer>
+
+
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript">
+        $("#slider-container").sliderUi({
+            speed: 700,
+            cssEasing: "cubic-bezier(0.285, 1.015, 0.165, 1.000)"
+        });
+        $("#caption-slide").sliderUi({
+            caption: true
+        });
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dlmenu.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#dl-menu').dlmenu();
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#jquery_jplayer_1").jPlayer({
+                ready: function () {
+                    $(this).jPlayer("setMedia", {
+                        mp3: "images/bg-music.mp3"
+                    }).jPlayer("play");
+                    var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
+                    var kickoff = function () {
+                        $("#jquery_jplayer_1").jPlayer("play");
+                        document.documentElement.removeEventListener(click, kickoff, true);
+                    };
+                    document.documentElement.addEventListener(click, kickoff, true);
+                },
+                swfPath: "/js",
+                loop: true
+            });
+        });
+
+    </script>
+
+    <!--<div id="popup1" class="popup"> 
+	<br>
+	<div id="videodiv" style="width:100%" align="center">
+		<iframe style="visibility:inherit" width="560" height="315" src="//www.youtube.com/embed/U9v5zBW0Od8?rel=0" frameborder="0" allowfullscreen></iframe>
+	</div><br>
+	<div style="width:100%" align="right">
+		<a href="javascript:closepopup('popup1')"><span class="close_button">Skip</span></a>
+	</div>
+</div> -->
+
+    <div id="bg" class="popup_bg"></div>
+    <div id="jquery_jplayer_1"></div>
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-42280371-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
+</body>
+</html>

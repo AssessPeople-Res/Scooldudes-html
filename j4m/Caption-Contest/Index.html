@@ -1,0 +1,180 @@
+<html>
+<head>
+<title>Scooldudes | J4M Contest</title>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8">
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+a:visited {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+a:hover {
+	color: #FFFFCC;
+	text-decoration: none;
+}
+a:active {
+	color: #FFFF00;
+	text-decoration: underline;
+}
+.style1 {color: #FFFF00}
+.style2 {
+	font-family: "Comic Sans MS";
+	font-size: 36px;
+	color: #FFFF00;
+	font-weight: normal;
+}
+.FormField {
+	font-family: "Comic Sans MS";
+	background-color: #620505;
+	font-size: 36px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-position: center center;
+	text-align: center;
+}
+.style3 {
+	font-family: "Comic Sans MS";
+	font-size: 24px;
+	font-weight: bold;
+	color: #990000;
+}
+-->
+</style>
+
+<script>
+
+history.forward()
+
+function onBodyLoad()
+{
+	var Frm = document.SDForm; 
+	
+	Frm.txtDate.value = ""; 
+	Frm.txtMonth.value = ""; 
+	Frm.txtYear.value = ""; 
+
+	Frm.txtHours.value = ""; 
+	Frm.txtMins.value = ""; 
+	Frm.txtSecs.value = ""; 
+
+	Timer();
+}
+
+function Timer()
+{
+	var Frm = document.SDForm; 
+
+	var SysDate = parseInt(Frm.txtDate.value); 
+	var Hours = parseInt(Frm.txtHours.value); 
+	var Mins = parseInt(Frm.txtMins.value);	
+	var Secs = parseInt(Frm.txtSecs.value);	
+
+Frm.submit(); 
+
+/*
+	if(parseInt(SysDate) == 28) 
+	{
+		if(parseInt(Hours) >= 10)
+		{
+			Frm.submit(); 
+		}
+	}
+	else if(parseInt(SysDate) == 29)
+	{
+		Frm.submit(); 	
+	}
+*/
+
+	Secs = Secs+1;
+
+	if(Secs == 60)
+	{
+		Mins = Mins+1; 
+		Secs = 0; 
+		
+		if(Mins == 60)
+		{
+			Hours = Hours+1; 
+			Mins = 0; 
+			Secs = 0;
+		}
+	}
+	
+	Frm.txtHours.value = Hours
+	Frm.txtMins.value = Mins
+	Frm.txtSecs.value = Secs 
+	
+	setTimeout("Timer()",1000); 
+}
+
+</script>
+
+</head>
+<body bgcolor="#FFFFFF" onLoad="onBodyLoad()">
+<form name="SDForm" method="post" action="login.html">
+<table width="1000" height="291" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td valign="top" bgcolor="#FFFFFF">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="30%"><div align="left"><img src="images/scooldudes-logo.jpg" width="251" height="149"></div></td>
+            <td width="61%"><div align="center" class="style3">J4M - Caption Contest </div></td>
+          </tr>
+        </table>
+		</td>
+	</tr>
+	<tr>
+	  <td colspan="3" valign="top" bgcolor="#620505" ><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top"> <p align="justify">&nbsp;</p>
+              <table width="75%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <th scope="row"><div align="left"><font color="#FFFFFF" size="4" face="Kristen ITC">Thank you for registering for the J4M contest.
+                The contest will be open between </font><font size="4" face="Kristen ITC"><span class="style1">10 AM to 6 PM on Sunday 14th July 2013</span></font><font color="#FFFFFF" size="4" face="Kristen ITC">.                   You will be able to participate in the contest during this period.</font></div></th>
+                </tr>
+              </table>
+              <br>
+              <table width="60%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <th scope="row"><div align="center"><span class="style2">Date</span></div></th>
+                  <td class="style2"><div align="center">Time</div></td>
+                </tr>
+                <tr>
+                  <th scope="row"><label>
+                    <div align="center">
+                      <input name="txtDate" type="text" class="FormField" id="txtDate" size="2" maxlength="2" readonly>
+                      <input name="txtMonth" type="text" class="FormField" id="txtMonth" size="2" maxlength="2" readonly>
+                      <input name="txtYear" type="text" class="FormField" id="txtYear" size="4" maxlength="4" readonly>
+                    </div>
+                  </label></th>
+                  <td><div align="center">
+                    <input name="txtHours" type="text" class="FormField" id="txtHours" size="2" maxlength="2" readonly>
+                    <input name="txtMins" type="text" class="FormField" id="txtMins" size="2" maxlength="2" readonly>
+                    <input name="txtSecs" type="text" class="FormField" id="txtSecs" size="2" maxlength="2" readonly>
+                  </div></td>
+                </tr>
+              </table>              
+              <br>
+              <p align="center"><font color="#FFFFFF" size="4" face="Kristen ITC">
+                <input name="hdnContestCode" type="hidden" id="hdnContestCode" value="FB294D7B-63EC-4588-BA2F-CB7661897379">
+                <br>
+              <br>
+            </font></p></td>
+          </tr>
+        </table>
+	      <br></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

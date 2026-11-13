@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="utf-8" />
+<title>Scool Dude : Poll</title>
+<style type="text/css">
+<!--
+.style3 {font-size: 14px; color: #000000; font-family: "Comic Sans MS";font-weight:bold}
+.PollOption
+{
+font-size: 16px; 
+color: #006699; 
+font-family: "Comic Sans MS";
+cursor:hand;
+font-weight:bold
+}
+.PollOptionH
+{
+font-size: 14px; 
+color: #006699; 
+font-family: "Comic Sans MS";
+background-color:#F8E8C2;
+cursor:hand;
+font-weight:bold
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url();
+	background-color: #99CC33;
+}
+.style4 {
+	font-family: "Comic Sans MS";
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size:18px
+}
+-->
+</style>
+
+<script>
+
+function OptionMoveOver(Obj)
+{
+	Obj.className = "PollOptionH"
+}
+
+function OptionMoveOut(Obj)
+{
+	Obj.className = "PollOption"
+}
+
+function CheckOption(RadioIndex)
+{
+	if("" == "")
+	{
+		parent.location.href="ForceLogin.html?MsgCode=SDLG_PL0001"
+	}
+	else
+	{
+		eval("document.ScoolDudeFrm.RadioPollOption["+RadioIndex+"].checked = true") 
+		document.ScoolDudeFrm.submit();
+	}
+}
+
+function check()
+{
+	if("" == "")
+	{
+		parent.location.href="login.html?MsgCode=SDLG_PL0001"
+	}
+	else
+	{
+		document.ScoolDudeFrm.submit();	
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+<form name="ScoolDudeFrm" method="post" action="not-available.html">
+  <table align="center"  border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td  bgcolor="" align="center"><span class="style4">Poll</span>  </div></td>
+	</tr>
+    <tr>
+      <td bgcolor="#ffffff">
+  <div align="center">
+
+  <table width="100%" height="100%" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+  <tr>
+    <td height="25" colspan="2" bgcolor="#E6DBCC">
+	  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="style3"><div align="center"></div></td>
+      </tr>
+    </table></td>
+  </tr>
+
+  <tr bgcolor="#FFFFCC" onClick="CheckOption('')" onMouseOver="OptionMoveOver(this)" onMouseOut="OptionMoveOut(this)">
+    <td width="5%" height="10" class="PollOption"><input name="RadioPollOption" type="radio" value="" onClick="check()"/></td>
+    <td width="95%" height="10" class="PollOption">&nbsp;</td>
+  </tr>
+
+</table>
+	  </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
